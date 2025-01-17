@@ -9,7 +9,7 @@ const Home = () => {
           <Title>Hello, I'm Sarah Spajic</Title>
         </TitleWrapper>
         <Tagline>
-          Connecting human needs with tech solutions through intuitive design and automation
+          Connecting human needs with tech solutions through intuitive design
         </Tagline>
         <CTAButton to="/contact">Contact Me</CTAButton>
       </Hero>
