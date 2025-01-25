@@ -17,11 +17,12 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Inter', sans-serif;
     line-height: 1.6;
     color: ${props => props.theme.colors.text};
     background: ${props => props.theme.colors.background};
     perspective: 1000px;
+    font-weight: 300;
   }
 
   #root {
@@ -35,7 +36,7 @@ export const GlobalStyle = createGlobalStyle`
   h1, h2, h3 {
     margin-bottom: ${props => props.theme.spacing.medium};
     color: ${props => props.theme.colors.primary};
-    text-shadow: ${props => props.theme.shadows.neon};
+    font-weight: 400;
   }
 
   ::selection {
