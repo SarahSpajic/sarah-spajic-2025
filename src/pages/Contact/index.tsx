@@ -1,18 +1,27 @@
 import React from 'react';
-import { ContactSection, Content, Title, LinkButton } from './styles';
+import { ContactSection, Content, Title, ButtonContainer, SocialButton } from './styles';
 
 const Contact = () => {
   return (
     <ContactSection>
       <Content>
-        <Title>Contact Me</Title>
-        <LinkButton 
-          href="https://www.linkedin.com/in/sarah-spajic/" 
-          target="_blank" 
-          rel="noopener noreferrer"
-        >
-          LinkedIn Profile
-        </LinkButton>
+        <Title>Connect With Me</Title>
+        <ButtonContainer>
+          <SocialButton 
+            href="https://www.linkedin.com/in/sarah-spajic/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </SocialButton>
+          <SocialButton 
+            href="https://github.com/sarahspajic" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </SocialButton>
+        </ButtonContainer>
       </Content>
     </ContactSection>
   );
