@@ -16,7 +16,6 @@ export const Nav = styled.nav`
 export const Logo = styled.div`
   font-size: 2.05rem;
   font-weight: bold;
-  text-shadow: ${({ theme }) => theme.shadows.neon};
   
   a {
     text-decoration: none;
