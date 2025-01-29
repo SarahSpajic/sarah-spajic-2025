@@ -59,6 +59,31 @@ export const Tagline = styled.p`
   color: ${({ theme }) => theme.colors.textLight};
 `;
 
+export const HighlightedText = styled.span`
+  background: linear-gradient(
+    to right,
+    #FFB5B5 20%,
+    #f4e490 40%,
+    #f4e490 60%,
+    #FFB5B5 80%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  font-weight: 500;
+  animation: shine 3s ease-in-out infinite;
+
+  @keyframes shine {
+    0% {
+      background-position: 200% center;
+    }
+    100% {
+      background-position: -200% center;
+    }
+  }
+`;
+
 export const ImageContainer = styled.div`
   position: relative;
   width: 500px;

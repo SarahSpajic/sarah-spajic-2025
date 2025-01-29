@@ -1,5 +1,5 @@
 import React from 'react';
-import { HomeSection, Hero, Title, Tagline, TitleWrapper, ContentWrapper, ImageWrapper, LinkedInButton } from './styles';
+import { HomeSection, Hero, Title, Tagline, TitleWrapper, ContentWrapper, ImageWrapper, LinkedInButton, HighlightedText } from './styles';
 import profileImage from '../../assets/sarah-spajic.png';
 
 const Home = () => {
@@ -11,7 +11,7 @@ const Home = () => {
             <Title>Hello!</Title>
           </TitleWrapper>
           <Tagline>
-            I connect human needs with tech solutions through intuitive design
+            I'm <HighlightedText>Sarah</HighlightedText>, I connect human needs with tech solutions through intuitive design
           </Tagline>
           <LinkedInButton 
             href="https://www.linkedin.com/in/sarah-spajic/" 
