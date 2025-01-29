@@ -5,6 +5,13 @@ export const HomeSection = styled.section`
   min-height: 100vh;
   display: flex;
   align-items: center;
+  padding: 24px 16px;
+  padding-top: 80px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    padding: 16px;
+    padding-top: 72px;
+  }
 `;
 
 export const Hero = styled.div`
@@ -13,13 +20,30 @@ export const Hero = styled.div`
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
   align-items: center;
-  padding: 8rem;
+  padding: 64px;
+  padding-top: 80px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    grid-template-columns: 1fr;
+    padding: 32px;
+    padding-top: 72px;
+    text-align: center;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    padding: 24px;
+    padding-top: 64px;
+  }
 `;
 
 export const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    align-items: center;
+  }
 `;
 
 export const TitleWrapper = styled.div``;
@@ -35,6 +59,31 @@ export const Tagline = styled.p`
   color: ${({ theme }) => theme.colors.textLight};
 `;
 
+export const ImageContainer = styled.div`
+  position: relative;
+  width: 500px;
+  height: 670px;
+  margin: 0 auto;
+  padding: 100px;
+  background: radial-gradient(
+    circle at center,
+    transparent 40%,
+    ${({ theme }) => theme.colors.background} 100%
+  );
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    width: 400px;
+    height: 528px;
+    padding: 80px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    width: 350px;
+    height: 457px;
+    padding: 60px;
+  }
+`;
+
 export const ImageWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -43,6 +92,16 @@ export const ImageWrapper = styled.div`
   width: 400px;
   height: 570px;
   margin: 0 auto;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    width: 300px;
+    height: 428px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    width: 250px;
+    height: 357px;
+  }
 
   &:after {
     content: '';
@@ -54,18 +113,15 @@ export const ImageWrapper = styled.div`
     border-radius: 0 0 37% 37%;
     background: linear-gradient(
       to bottom,
-      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.0) 15%,
       rgba(0, 0, 0, 0.2) 50%,
-      rgba(0, 0, 0, 0.8) 100%
+      rgba(0, 0, 0, 1) 100%
     );
     pointer-events: none;
     z-index: 1;
   }
 
   img {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;

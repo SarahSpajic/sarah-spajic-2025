@@ -21,12 +21,31 @@ export const Logo = styled.div`
     text-decoration: none;
     color: ${({ theme }) => theme.colors.primary};
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    font-size: 1.8rem;
+  }
 `;
 
-export const NavLinks = styled.ul`
+export const NavLinks = styled.ul<{ isOpen: boolean }>`
   display: flex;
   list-style: none;
   gap: 2rem;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    transform: ${({ isOpen }) => isOpen ? 'translateX(0)' : 'translateX(100%)'};
+    transition: transform 0.3s ease-in-out;
+  }
 `;
 
 export const NavItem = styled.li`
@@ -52,11 +71,57 @@ export const NavItem = styled.li`
 
     &:hover {
       color: ${({ theme }) => theme.colors.primary};
-      text-shadow: ${({ theme }) => theme.shadows.neon};
       
       &:before {
         width: 100%;
       }
+    }
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    margin: 1rem 0;
+    
+    a {
+      font-size: 1.2rem;
+    }
+  }
+`;
+
+export const HamburgerButton = styled.button<{ isOpen: boolean }>`
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1001;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+  }
+
+  span {
+    width: 2rem;
+    height: 0.25rem;
+    background: ${({ theme }) => theme.colors.primary};
+    transition: all 0.3s ease;
+    position: relative;
+    transform-origin: 8px;
+
+    &:first-child {
+      transform: ${({ isOpen }) => isOpen ? 'rotate(45deg)' : 'rotate(0)'};
+    }
+
+    &:nth-child(2) {
+      opacity: ${({ isOpen }) => isOpen ? '0' : '1'};
+      transform: ${({ isOpen }) => isOpen ? 'translateX(-20px)' : 'translateX(0)'};
+    }
+
+    &:nth-child(3) {
+      transform: ${({ isOpen }) => isOpen ? 'rotate(-45deg)' : 'rotate(0)'};
     }
   }
 `; 
