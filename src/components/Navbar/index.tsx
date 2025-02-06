@@ -5,19 +5,22 @@ import { Nav, Logo, NavLinks, NavItem, HamburgerButton } from './styles';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleMenu = () => setIsOpen(!isOpen);
-
   return (
-    <Nav>
+    <Nav as="header">
       <Logo>
         <Link to="/">Sarah Spajic</Link>
       </Logo>
-      <HamburgerButton isOpen={isOpen} onClick={toggleMenu}>
+      <HamburgerButton 
+        isOpen={isOpen} 
+        onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
+        aria-label="Menu"
+      >
         <span />
         <span />
         <span />
       </HamburgerButton>
-      <NavLinks isOpen={isOpen}>
+      <NavLinks isOpen={isOpen} as="nav">
         <NavItem>
           <Link to="/" onClick={() => setIsOpen(false)}>Home</Link>
         </NavItem>

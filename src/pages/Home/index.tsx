@@ -4,7 +4,7 @@ import profileImage from '../../assets/sarah-spajic.png';
 
 const Home = () => {
   return (
-    <HomeSection>
+    <HomeSection as="main">
       <Hero>
         <ContentWrapper>
           <TitleWrapper>
@@ -17,6 +17,7 @@ const Home = () => {
             href="https://www.linkedin.com/in/sarah-spajic/" 
             target="_blank" 
             rel="noopener noreferrer"
+            aria-label="LinkedIn"
           >
             LinkedIn
           </LinkedInButton>
