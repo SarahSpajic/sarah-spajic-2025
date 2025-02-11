@@ -3,8 +3,20 @@ import { HomeSection, Hero, Title, Tagline, TitleWrapper, ContentWrapper, ImageW
 import profileImage from '../../assets/sarah-spajic.png';
 
 const Home = () => {
+  const [mousePosition, setMousePosition] = React.useState({ x: 50, y: 50 });
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const { clientX, clientY } = e;
+    const { innerWidth, innerHeight } = window;
+    
+    setMousePosition({
+      x: (clientX / innerWidth) * 100,
+      y: (clientY / innerHeight) * 100
+    });
+  };
+
   return (
-    <HomeSection as="main">
+    <HomeSection as="main" onMouseMove={handleMouseMove}>
       <Hero>
         <ContentWrapper>
           <TitleWrapper>
@@ -22,7 +34,7 @@ const Home = () => {
             LinkedIn
           </LinkedInButton>
         </ContentWrapper>
-        <ImageWrapper>
+        <ImageWrapper x={mousePosition.x} y={mousePosition.y}>
           <img src={profileImage} alt="Sarah Spajic" />
         </ImageWrapper>
       </Hero>

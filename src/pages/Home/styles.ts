@@ -109,7 +109,7 @@ export const ImageContainer = styled.div`
   }
 `;
 
-export const ImageWrapper = styled.div`
+export const ImageWrapper = styled.div<{ x: number; y: number }>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -117,34 +117,7 @@ export const ImageWrapper = styled.div`
   width: 400px;
   height: 570px;
   margin: 0 auto;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    width: 300px;
-    height: 428px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    width: 250px;
-    height: 357px;
-  }
-
-  &:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 0 0 37% 37%;
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.0) 15%,
-      rgba(0, 0, 0, 0.2) 50%,
-      rgba(0, 0, 0, 1) 100%
-    );
-    pointer-events: none;
-    z-index: 1;
-  }
+  perspective: 1000px;
 
   img {
     width: 100%;
@@ -154,29 +127,13 @@ export const ImageWrapper = styled.div`
     box-shadow: 
       0 0 40px 20px rgba(0, 0, 0, 0.8),
       0 0 80px 40px rgba(0, 0, 0, 0.6);
+    transform: rotateY(${props => (props.x - 50) * 0.15}deg)
+              rotateX(${props => (props.y - 50) * -0.15}deg);
+    transition: transform 0.1s ease-out;
   }
 `;
 
 export const Logo = styled.img`
-  height: 80px;
-  width: auto;
-`;
-
-export const CTAButton = styled(Link)`
-  display: inline-block;
-  padding: ${({ theme }) => theme.spacing.small} ${({ theme }) => theme.spacing.medium};
-  background: ${({ theme }) => theme.colors.primary};
-  color: #000000;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background 0.3s;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 1.05rem;
-
-  &:hover {
-    background: ${({ theme }) => theme.colors.primaryDark};
-  }
 `;
 
 export const LinkedInButton = styled.a`
@@ -208,4 +165,4 @@ export const LinkedInButton = styled.a`
       transform: translateX(5px);
     }
   }
-`; 
+`;
