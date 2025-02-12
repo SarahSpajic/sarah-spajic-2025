@@ -9,8 +9,116 @@ export const HomeSection = styled.section`
   padding-top: 80px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    padding: 16px;
-    padding-top: 72px;
+    padding: 60px 0 24px 0;
+    align-items: flex-start;
+  }
+`;
+
+export const Content = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+    margin: 0;
+    width: 100%;
+    padding: 0;
+  }
+`;
+
+export const TextContent = styled.div`
+  max-width: 600px;
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+    width: 90%;
+    overflow-wrap: anywhere;
+  }
+
+  @media (max-width: 415px) {
+    width: 80vw;
+  }
+
+  @media (max-width: 360px) {
+    width: 75vw;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    white-space: normal;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+      font-size: clamp(1.4rem, 5vw, 2rem);
+      padding: 0;
+      width: 90%;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+      white-space: pre-wrap;
+      max-width: 90%;
+    }
+
+    @media (max-width: 415px) {
+      font-size: clamp(1.2rem, 4.5vw, 1.4rem);
+    }
+
+    @media (max-width: 360px) {
+      font-size: clamp(1.1rem, 4vw, 1.2rem);
+    }
+  }
+
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: ${({ theme }) => theme.colors.textLight};
+    white-space: normal;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+      font-size: clamp(0.75rem, 3.5vw, 0.9rem);
+      margin-bottom: 1.5rem;
+      padding: 0;
+      width: 90%;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+      white-space: pre-wrap;
+      max-width: 90%;
+    }
+
+    @media (max-width: 415px) {
+      font-size: clamp(0.7rem, 3vw, 0.75rem);
+      width: 80vw;
+    }
+
+    @media (max-width: 360px) {
+      font-size: clamp(0.65rem, 2.8vw, 0.7rem);
+      width: 75vw;
+    }
+  }
+`;
+
+export const ImageContainer = styled.div`
+  flex-shrink: 0;
+  width: 350px;
+  height: 350px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    width: 220px;
+    height: 220px;
+    margin: 0 auto;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
   }
 `;
 
@@ -31,8 +139,9 @@ export const Hero = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    padding: 24px;
+    padding: 16px;
     padding-top: 64px;
+    gap: 1rem;
   }
 `;
 
@@ -84,31 +193,6 @@ export const HighlightedText = styled.span`
   }
 `;
 
-export const ImageContainer = styled.div`
-  position: relative;
-  width: 500px;
-  height: 670px;
-  margin: 0 auto;
-  padding: 100px;
-  background: radial-gradient(
-    circle at center,
-    transparent 40%,
-    ${({ theme }) => theme.colors.background} 100%
-  );
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    width: 400px;
-    height: 528px;
-    padding: 80px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    width: 350px;
-    height: 457px;
-    padding: 60px;
-  }
-`;
-
 export const ImageWrapper = styled.div<{ x: number; y: number }>`
   display: flex;
   justify-content: center;
@@ -118,6 +202,17 @@ export const ImageWrapper = styled.div<{ x: number; y: number }>`
   height: 570px;
   margin: 0 auto;
   perspective: 1000px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    width: 300px;
+    height: 427px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    width: 200px;
+    height: 285px;
+    margin-top: 1rem;
+  }
 
   img {
     width: 100%;
