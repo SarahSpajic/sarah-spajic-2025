@@ -5,7 +5,7 @@ import { GlobalStyle } from './styles/GlobalStyle';
 import { theme } from './styles/theme';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
-import About from './pages/About';
+import Experience from './pages/Experience';
 import Contact from './pages/Contact';
 import { PageTransition } from './components/PageTransition';
 
@@ -21,9 +21,9 @@ function AppContent() {
             <Home />
           </PageTransition>
         } />
-        <Route path="/about" element={
+        <Route path="/experience" element={
           <PageTransition>
-            <About />
+            <Experience />
           </PageTransition>
         } />
         <Route path="/contact" element={
@@ -38,12 +38,12 @@ function AppContent() {
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Router>
+    <Router>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
         <AppContent />
-      </Router>
-    </ThemeProvider>
+      </ThemeProvider>
+    </Router>
   );
 }
 

@@ -27,7 +27,7 @@ export const Logo = styled.div`
   }
 `;
 
-export const NavLinks = styled.ul<{ isOpen: boolean }>`
+export const NavLinks = styled.ul<{ $isOpen: boolean }>`
   display: flex;
   list-style: none;
   gap: 2rem;
@@ -43,15 +43,15 @@ export const NavLinks = styled.ul<{ isOpen: boolean }>`
     align-items: center;
     background: rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(10px);
-    transform: ${({ isOpen }) => isOpen ? 'translateX(0)' : 'translateX(100%)'};
+    transform: ${({ $isOpen }) => $isOpen ? 'translateX(0)' : 'translateX(100%)'};
     transition: transform 0.3s ease-in-out;
   }
 `;
 
-export const NavItem = styled.li`
+export const NavItem = styled.li<{ $isActive: boolean }>`
   a {
     text-decoration: none;
-    color: ${({ theme }) => theme.colors.text};
+    color: ${({ $isActive, theme }) => $isActive ? theme.colors.primary : theme.colors.text};
     font-weight: 500;
     transition: all 0.3s;
     position: relative;
@@ -63,7 +63,7 @@ export const NavItem = styled.li`
       position: absolute;
       bottom: 0;
       left: 0;
-      width: 0;
+      width: ${({ $isActive }) => $isActive ? '100%' : '0'};
       height: 2px;
       background: ${({ theme }) => theme.colors.primary};
       transition: width 0.3s ease;
@@ -87,7 +87,7 @@ export const NavItem = styled.li`
   }
 `;
 
-export const HamburgerButton = styled.button<{ isOpen: boolean }>`
+export const HamburgerButton = styled.button<{ $isOpen: boolean }>`
   display: none;
   background: none;
   border: none;
@@ -112,16 +112,16 @@ export const HamburgerButton = styled.button<{ isOpen: boolean }>`
     transform-origin: 8px;
 
     &:first-child {
-      transform: ${({ isOpen }) => isOpen ? 'rotate(45deg)' : 'rotate(0)'};
+      transform: ${({ $isOpen }) => $isOpen ? 'rotate(45deg)' : 'rotate(0)'};
     }
 
     &:nth-child(2) {
-      opacity: ${({ isOpen }) => isOpen ? '0' : '1'};
-      transform: ${({ isOpen }) => isOpen ? 'translateX(-20px)' : 'translateX(0)'};
+      opacity: ${({ $isOpen }) => $isOpen ? '0' : '1'};
+      transform: ${({ $isOpen }) => $isOpen ? 'translateX(-20px)' : 'translateX(0)'};
     }
 
     &:nth-child(3) {
-      transform: ${({ isOpen }) => isOpen ? 'rotate(-45deg)' : 'rotate(0)'};
+      transform: ${({ $isOpen }) => $isOpen ? 'rotate(-45deg)' : 'rotate(0)'};
     }
   }
 `; 
