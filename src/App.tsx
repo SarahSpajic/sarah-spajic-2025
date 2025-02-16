@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from './styles/GlobalStyle';
 import { theme } from './styles/theme';
@@ -31,6 +31,7 @@ function AppContent() {
             <Contact />
           </PageTransition>
         } />
+        <Route path="/about" element={<Navigate to="/experience" replace />} />
       </Routes>
     </>
   );
