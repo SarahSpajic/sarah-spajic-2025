@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Experience from './pages/Experience';
 import Contact from './pages/Contact';
+import CaseStudy from './pages/CaseStudy';
 import { PageTransition } from './components/PageTransition';
 
 function AppContent() {
@@ -29,6 +30,11 @@ function AppContent() {
         <Route path="/contact" element={
           <PageTransition>
             <Contact />
+          </PageTransition>
+        } />
+        <Route path="/case-study" element={
+          <PageTransition>
+            <CaseStudy />
           </PageTransition>
         } />
         <Route path="/about" element={<Navigate to="/experience" replace />} />

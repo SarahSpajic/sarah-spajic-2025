@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { 
   ExperienceSection, 
   TimelineContainer, 
@@ -147,7 +148,7 @@ const Experience = () => {
         </EducationCard>
       </EducationGrid>
 
-      {/* <motion.h1
+      <motion.h1
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -163,25 +164,28 @@ const Experience = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <ProjectImage src="/path-to-app-screenshot.png" alt="Home Service Pro App Screenshot" />
           <ProjectContent>
-            <h3>Home Service Pro</h3>
+            <h3>Outlook Timezone Scheduling</h3>
+            <Role>UX Research & Design Case Study</Role>
             <Description>
-              <li>Built with <Highlight>Kotlin</Highlight> and <Highlight>Android SDK</Highlight>, following <Highlight>Material Design</Highlight> principles</li>
-              <li>Features include <Highlight>client management</Highlight>, <Highlight>job tracking</Highlight>, and <Highlight>customer feedback</Highlight> system</li>
-              <li>Implements <Highlight>Room Database</Highlight> for local storage and <Highlight>MVVM architecture</Highlight></li>
+              <li>Conducted <Highlight>UX research</Highlight> with 20+ Executive Assistants to identify timezone scheduling pain points</li>
+              <li>Designed and prototyped solution using <Highlight>React</Highlight>, <Highlight>TypeScript</Highlight>, and <Highlight>Tailwind CSS</Highlight></li>
+              <li>Achieved <Highlight>4.71/5</Highlight> user preference rating and eliminated manual timezone configuration</li>
             </Description>
             <ProjectLinks>
-              <ProjectButton href="[your-github-repo]" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-github"></i> View Code
+              <ProjectButton as={Link} to="/case-study">
+                View Full Case Study
               </ProjectButton>
-              <ProjectButton href="[demo-video-link]" target="_blank" rel="noopener noreferrer">
-                <i className="fas fa-play-circle"></i> Watch Demo
+              <ProjectButton href="https://microsoft-scheduling-timezones.vercel.app/" target="_blank" rel="noopener noreferrer">
+                Live Prototype
+              </ProjectButton>
+              <ProjectButton href="https://github.com/SarahSpajic/microsoft-scheduling-timezones" target="_blank" rel="noopener noreferrer">
+                GitHub
               </ProjectButton>
             </ProjectLinks>
           </ProjectContent>
         </ProjectCard>
-      </ProjectGrid> */}
+      </ProjectGrid>
     </ExperienceSection>
   );
 };
